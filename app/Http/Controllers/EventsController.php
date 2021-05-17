@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Date;
 
 class EventsController extends BaseController
 {
+    public function warmupevents()
+    {
+        return Event::get();
+    }
+
     /*
      Requirements:
     - maximum 2 sql queries
@@ -96,10 +101,10 @@ class EventsController extends BaseController
     ]
      */
 
-    public function getEventsWithWorkshops() {
-        throw new \Exception('implement in coding task 1');
+    public function getEventsWithWorkshops()
+    {
+        return Event::with('workshops')->get();
     }
-
 
     /*
     Requirements:
@@ -175,7 +180,8 @@ class EventsController extends BaseController
     ```
      */
 
-    public function getFutureEventsWithWorkshops() {
+    public function getFutureEventsWithWorkshops()
+    {
         throw new \Exception('implement in coding task 2');
     }
 }
